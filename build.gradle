@@ -24,7 +24,7 @@ dependencies {
     implementation 'com.buschmais.jqassistant.core:report:' + project.jqaversion
     implementation 'com.buschmais.jqassistant.plugin:common:' + project.jqaversion
     implementation 'com.buschmais.jqassistant.core:store:' + project.jqaversion
-    implementation 'org.eclipse.jgit:org.eclipse.jgit:6.9.0.202403050737-r'
+    implementation 'org.asciidoctor:asciidoctorj:2.5.7'
 
     testImplementation 'com.buschmais.jqassistant.core:test:' + project.jqaversion
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.2'

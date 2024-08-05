@@ -1,0 +1,72 @@
+[[section-with-name]]
+== Second level headline
+
+Some text here.
+
+And a list:
+
+* list item one
+* list item two
+* list item three
+
+
+=== Third level headline
+
+Here follows an embedded diagram
+
+["plantuml","MainBuildingBlocks","png"]
+-----
+package de.kontext_e.jqassistant.plugin.plantuml.scanner {}
+package de.kontext_e.jqassistant.plugin.plantuml.store {
+    package descriptor {}
+}
+
+de.kontext_e.jqassistant.plugin.plantuml.scanner -up-> de.kontext_e.jqassistant.plugin.plantuml.store
+-----
+
+.Description of de.kontext_e.jqassistant.plugin.plantuml packages
+[options="header", myAttribute, components="packages"]
+|====
+| Package       | Purpose
+| scanner       | Scan a text file and create Neo4j nodes for packages and relationships for links.
+| store         | contains jQAssistant compliant descriptors for Neo4j nodes.
+|====
+
+==== Known Technical Debt
+
+*Unwanted Dependencies*
+
+During the lifetime many features were added. For some of them, a building block needs information stored in
+a different building block or has to call functionality of another building block - but these new connections
+lead to circular dependencies. To keep the System maintainable, the architecture must be improved:
+resolve dependency circles, move responsibilities etc. Open tasks are:
+
+.Unwantend Module Dependencies
+[options="header"]
+|===
+| From                      | To                    | What should be done
+| de.kontext_e.demo.one     | de.kontext_e.demo.two | Because one makes StatusDTO out of ReceivedMessage from two to hold a list of Sensor stati; Todo: let the ProcessSensorStatusCommand convert the ReceivedMessage into StatusDTO
+| de.kontext_e.demo.three   | de.kontext_e.demo.four| Because one makes StatusDTO out of ReceivedMessage from two to hold a list of Sensor stati; Todo: let the ProcessSensorStatusCommand convert the ReceivedMessage into StatusDTO
+|===
+
+MyTerm:: The definition of my term
+
+
+==== Design Pattern of Classes Matched by Regular Expressions
+
+Just as Carola Lilienthal explains in her talks, classes which
+use Design Patterns may be identified by regular expressions.
+She does it in her analysis tools, but a better way is to document
+it in the Architecture Documentation. It could be done like in
+this example.
+
+.Design Pattern of Classes Matched by Regular Expressions
+[options="header", label="Pattern"]
+|===
+| Regex                                 | Pattern
+| de.kontext_e.jqassistant.*Plugin      | Plugin
+| de.kontext_e.jqassistant.*Command     | Command
+| de.kontext_e.jqassistant.*Factory     | Factory
+|===
+
+See index.adoc for Concepts that are using this table to enhance the graph with design information.
